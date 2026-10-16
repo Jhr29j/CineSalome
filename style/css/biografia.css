@@ -1,0 +1,124 @@
+.about-grid
+{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:52px;
+  align-items:center
+}
+
+.quote-card
+{
+  min-height:340px;
+  padding:38px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:linear-gradient(145deg,#7b3840,#3b2023);
+  border:1px solid var(--borde)
+}
+
+.quote-card blockquote
+{
+  font:clamp(27px,3.2vw,40px)/1.35 'Libre Baskerville',Georgia,serif
+}
+
+.quote-card p
+{
+  margin-top:22px;
+  color:#f1d8d7;
+  font-size:11px;
+  text-transform:uppercase
+}
+
+.bio-copy p
+{
+  color:var(--gris-texto);
+  margin:0 0 15px
+}
+
+.bio-copy strong
+{
+  color:var(--rojo-claro)
+}
+
+.fact-strip
+{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:25px
+}
+
+.fact
+{
+  background:#2a2223;
+  border:1px solid rgba(248,242,237,.1);
+  padding:15px
+}
+
+.fact strong
+{
+  display:block;
+  color:var(--rojo-claro);
+  font:700 24px 'Libre Baskerville',Georgia,serif
+}
+
+.fact span
+{
+  font-size:12px;
+  color:var(--gris-texto)
+}
+
+@media(max-width:760px)
+{
+  .about-grid
+  {
+    grid-template-columns:1fr;
+    gap:30px
+  }
+
+  .fact-strip
+  {
+    gap:6px
+  }
+
+  .fact
+  {
+    padding:11px
+  }
+
+  .fact strong
+  {
+    font-size:22px
+  }
+}
+
+.sources-section {
+  border-top: 1px solid var(--borde);
+}
+
+.source-links {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin-top: 24px;
+}
+
+.source-links a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blanco);
+  text-decoration: none;
+  border-bottom: 1px solid var(--borde);
+  padding: 12px 0;
+}
+
+.source-links a::after {
+  content: ' ↗';
+  color: var(--rojo-claro);
+  margin-left: 8px;
+}
+
+.source-links a:hover {
+  color: var(--rojo-claro);
+}

@@ -1,0 +1,81 @@
+.education-layout
+{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:52px;
+  align-items:center
+}
+
+.edu-big
+{
+  font:clamp(35px,4vw,55px)/1.25 'Libre Baskerville',Georgia,serif
+}
+
+.edu-big em
+{
+  color:var(--rojo-claro);
+  font-style:normal
+}
+
+.edu-text
+{
+  color:var(--gris-texto);
+  margin-top:20px
+}
+
+.edu-panel
+{
+  padding:31px;
+  background:#2a2223;
+  border:1px solid var(--borde)
+}
+
+.edu-panel h3
+{
+  font-size:28px;
+  line-height:1.3;
+  margin-bottom:14px
+}
+
+.edu-panel p
+{
+  font-size:15px;
+  color:var(--gris-texto);
+  margin-bottom:19px
+}
+
+.edu-points
+{
+  list-style:none;
+  display:grid;
+  gap:13px
+}
+
+.edu-points li
+{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  color:var(--gris-texto);
+  font-size:15px
+}
+
+.check
+{
+  flex:0 0 23px;
+  height:23px;
+  display:grid;
+  place-items:center;
+  background:var(--rojo);
+  color:white;
+  font-weight:bold
+}
+
+@media(max-width:760px)
+{
+  .education-layout
+  {
+    grid-template-columns:1fr;
+    gap:30px
+  }
+}

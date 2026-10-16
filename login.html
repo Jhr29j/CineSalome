@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#110d0e" name="theme-color"/>
+  <title>
+   Acceso · Cine Salomé
+  </title>
+  <link href="style/css/common.css" rel="stylesheet"/>
+  <link href="style/css/auth.css" rel="stylesheet"/>
+  <link href="img/favicon.png" rel="icon" type="image/png"/>
+ </head>
+ <body class="auth-page">
+  <main class="auth-shell">
+   <a class="auth-brand" href="login.html">
+    <img alt="Cine Salomé" class="brand-logo" src="img/LogoCineSalomé.png"/>
+   </a>
+   <div class="auth-poster">
+    <div class="film-kicker">
+     UNA VIDA QUE INSPIRA
+    </div>
+    <div class="poster-title">
+     La historia
+     <br/>
+     también se
+     <br/>
+     <span>
+      aprende.
+     </span>
+    </div>
+    <p>
+     Entra a la experiencia educativa de Salomé Ureña y prepárate para el gran quiz.
+    </p>
+    <div class="poster-date">
+     21 OCT · CINE SALOMÉ
+    </div>
+   </div>
+   <section class="auth-card">
+    <div class="auth-tabs" role="tablist">
+     <button class="auth-tab active" data-mode="login" type="button">
+      Iniciar sesión
+     </button>
+     <button class="auth-tab" data-mode="register" type="button">
+      Crear cuenta
+     </button>
+    </div>
+    <p class="eyebrow">
+     Tu pase al conocimiento
+    </p>
+    <h1 id="formTitle">
+     Bienvenido de nuevo
+    </h1>
+    <p class="auth-subtitle" id="formSubtitle">
+     Inicia sesión para continuar tu recorrido.
+    </p>
+    <form id="authForm" novalidate="">
+     <div class="form-field hidden" data-field="name">
+      <label for="name">
+       Nombre completo
+      </label>
+      <input autocomplete="name" id="name" minlength="3" name="NOMBRE_COMPLETO" placeholder="Tu nombre y apellido"/>
+     </div>
+     <div class="form-row hidden" data-field="list">
+      <div class="form-field">
+       <label for="listNumber">
+        Número de lista
+       </label>
+       <input id="listNumber" min="1" name="NUMERO_DE_LISTA" placeholder="Ej. 12" type="number"/>
+      </div>
+      <div class="form-field">
+       <label for="grade">
+        Grado
+       </label>
+       <select id="grade" name="ID_GRADO">
+        <option value="">
+         Selecciona
+        </option>
+       </select>
+      </div>
+     </div>
+     <div class="form-field hidden" data-field="technique">
+      <label for="technique">
+       Técnica
+      </label>
+      <select id="technique" name="ID_TECNICA">
+       <option value="">
+        Selecciona tu técnica
+       </option>
+      </select>
+     </div>
+     <div class="form-field">
+      <label for="email">
+       Correo electrónico
+      </label>
+      <input autocomplete="email" id="email" name="CORREO" placeholder="nombre@correo.com" required="" type="email"/>
+     </div>
+     <div class="form-field">
+      <label for="password">
+       Contraseña
+      </label>
+      <input autocomplete="current-password" id="password" minlength="8" name="CONTRASEÑA" placeholder="Mínimo 8 caracteres" required="" type="password"/>
+     </div>
+     <div aria-live="polite" class="form-error" id="formMessage" role="alert">
+     </div>
+     <button class="btn btn-primary auth-submit" id="submitButton" type="submit">
+      Entrar a la experiencia
+      <span>
+       →
+      </span>
+     </button>
+    </form>
+    <p class="auth-note">
+     Tus datos se utilizarán para gestionar el registro y validar tu participación en la actividad.
+    </p>
+   </section>
+  </main>
+  <script src="api-config.js">
+  </script>
+  <script src="style/js/login.js">
+  </script>
+  <script src="style/js/auth.js">
+  </script>
+ </body>
+</html>

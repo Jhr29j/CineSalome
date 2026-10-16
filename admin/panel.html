@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#110d0e" name="theme-color"/>
+  <title>
+   Administración · Cine Salomé
+  </title>
+  <link href="../style/css/common.css" rel="stylesheet"/>
+  <link href="../style/css/admin.css" rel="stylesheet"/>
+  <link href="../img/favicon.png" rel="icon" type="image/png"/>
+ </head>
+ <body>
+  <nav class="admin-nav">
+   <a class="logo" href="./">
+    <img alt="Cine Salomé" class="brand-logo" src="../img/LogoCineSalomé.png"/>
+   </a>
+   <div class="admin-nav-label">
+    CENTRO DE CONTROL
+   </div>
+   <button class="logout-button" id="adminLogout" type="button">
+    Cerrar sesión
+   </button>
+  </nav>
+  <main class="admin-main">
+   <header class="admin-heading">
+    <div>
+     <div class="eyebrow">
+      Acceso restringido · Administración
+     </div>
+     <h1 class="page-title">
+      Panel de
+      <span>
+       participantes
+      </span>
+     </h1>
+     <p class="page-intro">
+      Consulta registros y valida las boletas el día de la actividad.
+     </p>
+    </div>
+    <button class="btn btn-light" id="refreshButton" type="button">
+     ↻ Actualizar
+    </button>
+   </header>
+   <section class="stats-grid">
+    <article class="stat-card">
+     <span>
+      Participantes registrados
+     </span>
+     <strong id="totalCount">
+      —
+     </strong>
+    </article>
+    <article class="stat-card">
+     <span>
+      Asistencia confirmada
+     </span>
+     <strong id="presentCount">
+      —
+     </strong>
+    </article>
+    <article class="stat-card">
+     <span>
+      Pendientes por llegar
+     </span>
+     <strong id="pendingCount">
+      —
+     </strong>
+    </article>
+   </section>
+   <section class="admin-panel">
+    <div class="panel-head">
+     <div>
+      <h2>
+       Directorio de estudiantes
+      </h2>
+      <p>
+       Busca por nombre, correo, número de lista o ID de registro.
+      </p>
+     </div>
+     <button class="btn btn-primary" id="exportButton" type="button">
+      Exportar CSV ↓
+     </button>
+    </div>
+    <div class="filters">
+     <label class="search-box">
+      <span>
+       ⌕
+      </span>
+      <input autocomplete="off" id="searchInput" placeholder="Buscar participante…" type="search"/>
+     </label>
+     <select aria-label="Filtrar por grado" id="gradeFilter">
+      <option value="">
+       Todos los grados
+      </option>
+     </select>
+     <select aria-label="Filtrar por técnica" id="techFilter">
+      <option value="">
+       Todas las técnicas
+      </option>
+     </select>
+     <select aria-label="Filtrar por asistencia" id="attendanceFilter">
+      <option value="">
+       Toda asistencia
+      </option>
+      <option value="false">
+       Pendiente
+      </option>
+      <option value="true">
+       Presente
+      </option>
+     </select>
+    </div>
+    <div class="table-wrap">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         ID / Lista
+        </th>
+        <th>
+         Estudiante
+        </th>
+        <th>
+         Correo
+        </th>
+        <th>
+         Grado y técnica
+        </th>
+        <th>
+         Asistencia
+        </th>
+        <th>
+         Acción
+        </th>
+       </tr>
+      </thead>
+      <tbody id="studentsTable">
+       <tr>
+        <td class="table-message" colspan="6">
+         Cargando registros…
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <div class="table-footer">
+     <span id="resultCount">
+      Cargando…
+     </span>
+     <span id="statusMessage" role="status">
+     </span>
+    </div>
+   </section>
+   <section class="admin-panel admin-accounts-panel">
+    <div class="panel-head">
+     <div>
+      <h2>
+       Usuarios administradores
+      </h2>
+      <p>
+       Crea cuentas autorizadas para gestionar estudiantes. Las contraseñas nunca se muestran.
+      </p>
+     </div>
+    </div>
+    <form class="admin-account-form" id="adminAccountForm">
+     <input id="editAdminId" type="hidden"/>
+     <label>
+      Nombre completo
+      <input id="adminName" maxlength="120" minlength="3" placeholder="Nombre del administrador" required=""/>
+     </label>
+     <label>
+      Usuario
+      <input id="adminUsername" maxlength="60" minlength="3" pattern="[A-Za-z0-9_.-]+" placeholder="usuario.admin" required=""/>
+     </label>
+     <label>
+      Correo electrónico
+      <input id="adminEmail" placeholder="admin@centro.edu" required="" type="email"/>
+     </label>
+     <label id="adminPasswordLabel">
+      Contraseña temporal
+      <input id="adminPassword" minlength="8" placeholder="Mínimo 8 caracteres" type="password"/>
+     </label>
+     <label class="checkbox-label">
+      <input checked="" id="adminActive" type="checkbox"/>
+      Cuenta activa
+     </label>
+     <div class="admin-form-actions">
+      <button class="btn btn-primary" id="saveAdminButton" type="submit">
+       Crear administrador
+      </button>
+      <button class="btn btn-light" hidden="" id="cancelAdminEdit" type="button">
+       Cancelar edición
+      </button>
+     </div>
+     <p class="admin-account-message" id="adminAccountMessage" role="status">
+     </p>
+    </form>
+    <div class="table-wrap">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Nombre
+        </th>
+        <th>
+         Usuario
+        </th>
+        <th>
+         Correo
+        </th>
+        <th>
+         Estado
+        </th>
+        <th>
+         Creado
+        </th>
+        <th>
+         Acción
+        </th>
+       </tr>
+      </thead>
+      <tbody id="adminsTable">
+       <tr>
+        <td class="table-message" colspan="6">
+         Cargando administradores…
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+  </main>
+  <script src="../api-config.js">
+  </script>
+  <script src="admin-auth.js">
+  </script>
+  <script src="panel.js">
+  </script>
+ </body>
+</html>
