@@ -1,13 +1,27 @@
-# Entorno virtual
+# Entornos virtuales
 .venv/
 venv/
+**/venv/
+**/env/
+**/.venv/
+BACKEND/venv/
 BACKEND/.venv/
 
-# Credenciales
+# Credenciales y variables de entorno privadas
 .env
+*.env
 **/.env
+**/.env.*
 !.env.example
+!**/.env.example
 
 # Archivos temporales de Python
 __pycache__/
+**/__pycache__/
 *.py[cod]
+
+# Editores y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
