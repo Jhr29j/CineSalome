@@ -14,7 +14,15 @@
   flex-direction:column;
   justify-content:center;
   background:linear-gradient(145deg,#7b3840,#3b2023);
-  border:1px solid var(--borde)
+  border:1px solid var(--borde);
+  transition:transform .4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .4s ease, border-color .3s ease;
+}
+
+.quote-card:hover
+{
+  transform:translateY(-6px);
+  border-color:var(--rojo-claro);
+  box-shadow:0 20px 48px rgba(0,0,0,.55), 0 0 20px rgba(229,82,91,.2);
 }
 
 .quote-card blockquote
@@ -53,7 +61,16 @@
 {
   background:#2a2223;
   border:1px solid rgba(248,242,237,.1);
-  padding:15px
+  padding:15px;
+  transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1), background .25s ease, border-color .25s ease, box-shadow .3s ease;
+}
+
+.fact:hover
+{
+  transform:translateY(-5px) scale(1.02);
+  background:#382729;
+  border-color:var(--rojo-claro);
+  box-shadow:0 12px 28px rgba(0,0,0,.45);
 }
 
 .fact strong

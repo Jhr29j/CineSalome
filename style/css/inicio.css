@@ -82,7 +82,14 @@
   overflow:hidden;
   border:1px solid rgba(229,82,91,.7);
   background:linear-gradient(145deg,#722128,#251115 70%);
-  box-shadow:var(--sombra)
+  box-shadow:var(--sombra);
+  transition:transform .5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .5s ease;
+}
+
+.portrait-frame:hover
+{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 24px 60px rgba(191,31,42,.35);
 }
 
 .portrait-frame:before
@@ -92,14 +99,26 @@
   width:340px;
   height:340px;
   border:11px dotted rgba(255,250,245,.2);
-  border-radius:50%
+  border-radius:50%;
+  transition:transform 8s linear;
+}
+
+.portrait-frame:hover:before
+{
+  transform:rotate(45deg);
 }
 
 .portrait-art
 {
   width:79%;
   z-index:1;
-  filter:drop-shadow(0 14px 12px rgba(0,0,0,.45))
+  filter:drop-shadow(0 14px 12px rgba(0,0,0,.45));
+  transition:transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-frame:hover .portrait-art
+{
+  transform:scale(1.04);
 }
 
 .portrait-caption
@@ -113,7 +132,26 @@
   padding:7px 10px;
   font-size:10px;
   font-weight:700;
-  letter-spacing:.08em
+  letter-spacing:.08em;
+  transition:transform .3s ease, border-color .3s ease;
+}
+
+.portrait-frame:hover .portrait-caption
+{
+  transform:translateY(-2px);
+  border-color:var(--rojo-claro);
+}
+
+@keyframes floatGentleOne
+{
+  0%, 100% { transform:translateY(0) rotate(0deg); }
+  50% { transform:translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatGentleTwo
+{
+  0%, 100% { transform:translateY(0) rotate(0deg); }
+  50% { transform:translateY(10px) rotate(-1deg); }
 }
 
 .floating-card
@@ -123,7 +161,15 @@
   padding:12px 14px;
   background:#241719;
   border-left:3px solid var(--rojo-claro);
-  box-shadow:var(--sombra)
+  box-shadow:var(--sombra);
+  transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .35s ease;
+}
+
+.floating-card:hover
+{
+  animation-play-state:paused;
+  transform:scale(1.06);
+  box-shadow:0 16px 36px rgba(0,0,0,.6), 0 0 16px rgba(229,82,91,.3);
 }
 
 .floating-card small
@@ -143,13 +189,15 @@
 .float-one
 {
   top:70px;
-  left:-8px
+  left:-8px;
+  animation:floatGentleOne 5.5s ease-in-out infinite;
 }
 
 .float-two
 {
   right:-8px;
-  bottom:55px
+  bottom:55px;
+  animation:floatGentleTwo 6.5s ease-in-out infinite;
 }
 
 .quick-grid
@@ -164,13 +212,16 @@
   background:#26191b;
   padding:25px;
   border-top:3px solid transparent;
-  text-decoration:none
+  text-decoration:none;
+  transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1), background .3s ease, border-color .3s ease, box-shadow .35s ease;
 }
 
 .quick-card:hover
 {
   border-color:var(--rojo-claro);
-  background:#352023
+  background:#352023;
+  transform:translateY(-8px);
+  box-shadow:0 16px 36px rgba(0,0,0,.55), 0 0 20px rgba(229,82,91,.2);
 }
 
 .quick-card h3

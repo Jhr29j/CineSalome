@@ -27,7 +27,15 @@
 {
   padding:31px;
   background:#2a2223;
-  border:1px solid var(--borde)
+  border:1px solid var(--borde);
+  transition:transform .4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .4s ease, border-color .3s ease;
+}
+
+.edu-panel:hover
+{
+  transform:translateY(-6px);
+  border-color:var(--rojo-claro);
+  box-shadow:0 20px 48px rgba(0,0,0,.55), 0 0 20px rgba(229,82,91,.2);
 }
 
 .edu-panel h3
@@ -57,7 +65,14 @@
   align-items:flex-start;
   gap:12px;
   color:var(--gris-texto);
-  font-size:15px
+  font-size:15px;
+  transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1), color .2s ease;
+}
+
+.edu-points li:hover
+{
+  transform:translateX(6px);
+  color:var(--blanco);
 }
 
 .check

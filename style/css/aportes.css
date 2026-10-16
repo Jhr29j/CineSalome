@@ -9,15 +9,16 @@
 {
   background:#2a2223;
   padding:30px;
-  transition:.2s;
-  border-top:3px solid transparent
+  transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1), background .3s ease, border-top-color .3s ease, box-shadow .35s ease;
+  border-top:3px solid transparent;
 }
 
 .info-card:hover
 {
   background:#37282a;
-  border-top-color:var(--rojo);
-  transform:translateY(-5px)
+  border-top-color:var(--rojo-claro);
+  transform:translateY(-8px);
+  box-shadow:0 18px 40px rgba(0,0,0,.55), 0 0 20px rgba(229,82,91,.2);
 }
 
 .card-icon
@@ -28,7 +29,14 @@
   place-items:center;
   background:rgba(145,54,62,.16);
   font-size:22px;
-  margin-bottom:20px
+  margin-bottom:20px;
+  transition:transform .35s cubic-bezier(0.16, 1, 0.3, 1), background .3s ease;
+}
+
+.info-card:hover .card-icon
+{
+  transform:scale(1.15) rotate(4deg);
+  background:rgba(229,82,91,.25);
 }
 
 .info-card h3

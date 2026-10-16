@@ -4,7 +4,7 @@
   let students = [], techniques = [], grades = [];
   const headers = () => ({ Authorization: `Bearer ${window.CineAuth?.token() || ''}`, 'Content-Type': 'application/json' });
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-  $('adminLogout').addEventListener('click', () => window.CineAuth.logout());
+  $('adminLogout')?.addEventListener('click', () => window.CineAuth.logout());
   $('refreshButton').addEventListener('click', loadData);
   $('searchInput').addEventListener('input', render);
   ['gradeFilter','techFilter','attendanceFilter'].forEach(id => $(id).addEventListener('change', render));

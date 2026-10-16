@@ -68,13 +68,16 @@
   background:#211a1b;
   border:1px solid rgba(248,242,237,.14);
   cursor:pointer;
-  font-size:15px
+  font-size:15px;
+  transition:transform .25s cubic-bezier(0.16, 1, 0.3, 1), background .2s ease, border-color .2s ease, box-shadow .25s ease;
 }
 
 .option:hover:not(:disabled)
 {
-  border-color:var(--rojo);
-  background:#372528
+  border-color:var(--rojo-claro);
+  background:#372528;
+  transform:translateX(8px);
+  box-shadow:-4px 0 0 0 var(--rojo-claro), 0 8px 20px rgba(0,0,0,.35);
 }
 
 .option.correct

@@ -13,7 +13,8 @@
   color:#a99a9d
 }
 
-.admin-nav .logout-button
+.admin-nav .logout-button,
+.admin-nav .user-menu-wrapper
 {
   margin-left:auto
 }
