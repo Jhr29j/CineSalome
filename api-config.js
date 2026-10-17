@@ -8,5 +8,6 @@
 
   window.CINE_API_URL =
     window.CINE_API_URL ||
-    (esLocal ? "http://127.0.0.1:8000" : "");
+    (esLocal ? "http://127.0.0.1:8000" 
+        : "https://cine-salome.vercel.app");
 })();
