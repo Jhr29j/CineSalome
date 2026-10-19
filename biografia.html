@@ -1,261 +1,583 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="es">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>CINE SALOMÉ — Biografía</title>
-  <link href="style/css/common.css?v=3.4" rel="stylesheet"/>
-  <link href="style/css/biografia.css?v=3.4" rel="stylesheet"/>
-  <link href="img/favicon.png" rel="icon" type="image/png"/>
- </head>
- <body>
-  <nav>
-   <a class="logo" href="index.html"><img referrerpolicy="no-referrer" alt="Cine Salomé" class="brand-logo" src="img/LogoCineSalomé.png"/></a>
-   <button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuToggle">☰</button>
-   <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a aria-current="page" href="biografia.html">Biografía</a></li>
-    <li><a href="aportes.html">Aportes</a></li>
-    <li><a href="obras.html">Obras</a></li>
-    <li><a href="linea-tiempo.html">Línea del tiempo</a></li>
-    <li><a class="nav-cta" href="quiz.html">Pon a prueba lo aprendido</a></li>
-   </ul>
-  </nav>
-  <main>
-   <header class="page-hero">
-    <div class="eyebrow">01 · Su historia</div>
-    <h1 class="page-title">¿Quién fue <span>Salomé Ureña?</span></h1>
-    <p class="page-intro">Poeta, educadora y una de las voces fundamentales de la República Dominicana. Su vida es una historia de talento, valentía y amor por su patria.</p>
-   </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <title>CINE SALOMÉ — Biografía</title>
+    <link href="style/css/common.css?v=3.4" rel="stylesheet" />
+    <link href="style/css/biografia.css?v=3.4" rel="stylesheet" />
+    <link href="img/favicon.png" rel="icon" type="image/png" />
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="index.html"
+        ><img
+          referrerpolicy="no-referrer"
+          alt="Cine Salomé"
+          class="brand-logo"
+          src="img/LogoCineSalomé.png"
+      /></a>
+      <button
+        aria-expanded="false"
+        aria-label="Abrir menú"
+        class="menu-toggle"
+        id="menuToggle"
+      >
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a aria-current="page" href="biografia.html">Biografía</a></li>
+        <li><a href="aportes.html">Aportes</a></li>
+        <li><a href="obras.html">Obras</a></li>
+        <li><a href="linea-tiempo.html">Línea del tiempo</a></li>
+        <li>
+          <a class="nav-cta" href="quiz.html">Pon a prueba lo aprendido</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <header class="page-hero">
+        <div class="eyebrow">01 · Su historia</div>
+        <h1 class="page-title">¿Quién fue <span>Salomé Ureña?</span></h1>
+        <p class="page-intro">
+          Poeta, educadora y una de las voces fundamentales de la República
+          Dominicana. Su vida es una historia de talento, valentía y amor por su
+          patria.
+        </p>
+      </header>
 
-   <!-- Datos principales con Retrato Histórico -->
-   <section class="content-section">
-    <div class="about-grid">
-     <div class="bio-visual-card reveal">
-      <div class="portrait-badge-frame" style="background:#140d0f; border:1px solid rgba(229,82,91,.5); border-radius:8px; overflow:hidden; display:flex; justify-content:center; align-items:center; height:400px; padding:12px; position:relative;">
-       <img referrerpolicy="no-referrer" alt="Fotografía histórica de Salomé Ureña" class="bio-portrait-img" loading="lazy" 
-            src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Salom%C3%A9_Ure%C3%B1a_de_Henr%C3%ADquez.jpg" 
-            onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Salom%C3%A9_Ure%C3%B1a_de_Henr%C3%ADquez.jpg';"
-            style="width:100%; height:100%; object-fit:contain; object-position:center top; display:block;"/>
-       <div class="portrait-tag-overlay">Salomé Ureña Díaz (1850–1897)</div>
-      </div>
-      <div class="quote-mini">
-       <blockquote>
-        "Para ser del hogar lumbrera y guía,<br>formemos la mujer dominicana."
-       </blockquote>
-       <cite>— «Mi ofrenda a la patria» (1887)</cite>
-      </div>
-     </div>
+      <!-- Datos principales con Retrato Histórico -->
+      <section class="content-section">
+        <div class="about-grid">
+          <div class="bio-visual-card reveal">
+            <div
+              class="portrait-badge-frame"
+              style="
+                background: #140d0f;
+                border: 1px solid rgba(229, 82, 91, 0.5);
+                border-radius: 8px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 400px;
+                padding: 12px;
+                position: relative;
+              "
+            >
+              <img
+                referrerpolicy="no-referrer"
+                alt="Fotografía histórica de Salomé Ureña"
+                class="bio-portrait-img"
+                loading="lazy"
+                src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Salom%C3%A9_Ure%C3%B1a_de_Henr%C3%ADquez.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Salom%C3%A9_Ure%C3%B1a_de_Henr%C3%ADquez.jpg';
+                "
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  object-position: center top;
+                  display: block;
+                "
+              />
+              <div class="portrait-tag-overlay">
+                Salomé Ureña Díaz (1850–1897)
+              </div>
+            </div>
+            <div class="quote-mini">
+              <blockquote>
+                "Para ser del hogar lumbrera y guía,<br />formemos la mujer
+                dominicana."
+              </blockquote>
+              <cite>— «Mi ofrenda a la patria» (1887)</cite>
+            </div>
+          </div>
 
-     <div class="bio-copy reveal">
-      <div class="section-kicker">Orígenes y Vocación</div>
-      <h2 class="sub-title">Una llama que encendió una nación</h2>
-      <p>Salomé Ureña de Henríquez nació el <strong>21 de octubre de 1850</strong> en Santo Domingo. Hija del poeta y abogado <strong>Nicolás Ureña de Mendoza</strong> y de <strong>Gregoria Díaz de León</strong>, creció en un ambiente de intensa devoción a las letras y la filosofía.</p>
-      <p>A los <strong>15 años</strong> comenzó a componer sus primeros versos, y a los <strong>17 publicó sus primeras obras</strong> bajo el seudónimo <em>«Herminia»</em>. En 1874, al firmar con su nombre verdadero, sacudió el panorama cultural dominicano con poemas cívicos que inspiraban valor en tiempos turbulentos.</p>
-      <p>En <strong>1880</strong> contrajo matrimonio con el ilustre médico y escritor <strong>Francisco Henríquez y Carvajal</strong>, quien más tarde ejercería como Presidente de la República en 1916. Juntos forjaron un hogar que sería cuna de pensadores de relieve continental.</p>
-      <div class="fact-strip">
-       <div class="fact">
-        <strong>1850</strong>
-        <span>Año de nacimiento</span>
-       </div>
-       <div class="fact">
-        <strong>1867</strong>
-        <span>Primeros poemas («Herminia»)</span>
-       </div>
-       <div class="fact">
-        <strong>1881</strong>
-        <span>Fundación Instituto de Señoritas</span>
-       </div>
-       <div class="fact">
-        <strong>1897</strong>
-        <span>Paso a la inmortalidad</span>
-       </div>
-      </div>
-     </div>
-    </div>
-   </section>
+          <div class="bio-copy reveal">
+            <div class="section-kicker">Orígenes y Vocación</div>
+            <h2 class="sub-title">Una llama que encendió una nación</h2>
+            <p>
+              Salomé Ureña de Henríquez nació el
+              <strong>21 de octubre de 1850</strong> en Santo Domingo. Hija del
+              poeta y abogado <strong>Nicolás Ureña de Mendoza</strong> y de
+              <strong>Gregoria Díaz de León</strong>, creció en un ambiente de
+              intensa devoción a las letras y la filosofía.
+            </p>
+            <p>
+              A los <strong>15 años</strong> comenzó a componer sus primeros
+              versos, y a los
+              <strong>17 publicó sus primeras obras</strong> bajo el seudónimo
+              <em>«Herminia»</em>. En 1874, al firmar con su nombre verdadero,
+              sacudió el panorama cultural dominicano con poemas cívicos que
+              inspiraban valor en tiempos turbulentos.
+            </p>
+            <p>
+              En <strong>1880</strong> contrajo matrimonio con el ilustre médico
+              y escritor <strong>Francisco Henríquez y Carvajal</strong>, quien
+              más tarde ejercería como Presidente de la República en 1916.
+              Juntos forjaron un hogar que sería cuna de pensadores de relieve
+              continental.
+            </p>
+            <div class="fact-strip">
+              <div class="fact">
+                <strong>1850</strong>
+                <span>Año de nacimiento</span>
+              </div>
+              <div class="fact">
+                <strong>1867</strong>
+                <span>Primeros poemas («Herminia»)</span>
+              </div>
+              <div class="fact">
+                <strong>1881</strong>
+                <span>Fundación Instituto de Señoritas</span>
+              </div>
+              <div class="fact">
+                <strong>1897</strong>
+                <span>Paso a la inmortalidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-   <!-- Flip cards de datos curiosos interactivos -->
-   <section class="content-section flip-section">
-    <div class="section-head reveal">
-     <div class="section-kicker">Interactúa y aprende</div>
-     <h2 class="section-title">Secretos de su <span>vida y época</span></h2>
-     <p class="section-intro">Pasa el cursor o toca cada tarjeta para revelar historias fascinantes que marcaron su legado.</p>
-    </div>
-    <div class="flip-grid">
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        </span>
-        <h3>Hogar Intelectual</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>Sus cuatro hijos —Pedro, Max, Frank y Camila— se convirtieron en humanistas, educadores y diplomáticos de renombre internacional en América Latina.</p></div>
-      </div>
-     </div>
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
-        </span>
-        <h3>El enigma de «Herminia»</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>Durante 7 años (1867–1874) firmó con el seudónimo <em>«Herminia»</em> para protegerse de los prejuicios machistas de la época, hasta que la admiración pública la impulsó a revelar su identidad.</p></div>
-      </div>
-     </div>
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        </span>
-        <h3>Panteón de la Patria</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>En 1972 sus restos fueron trasladados con honores militares al <strong>Panteón de la Patria</strong>, siendo una de las escasas heroínas consagradas en el mausoleo nacional dominicano.</p></div>
-      </div>
-     </div>
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
-        </span>
-        <h3>Efigie en el billete</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>Su semblante adorna el <strong>billete de 500 pesos dominicanos</strong> junto a su hijo Pedro Henríquez Ureña, símbolo de una estirpe de sabiduría y orgullo patrio.</p></div>
-      </div>
-     </div>
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-        </span>
-        <h3>Día Nacional del Poeta</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>En conmemoración a su natalicio, cada <strong>21 de octubre</strong> la República Dominicana celebra el <em>Día Nacional del Poeta</em> en reconocimiento a su voz lírica inmortal.</p></div>
-      </div>
-     </div>
-     <div class="flip-card reveal">
-      <div class="flip-inner">
-       <div class="flip-front">
-        <span class="flip-icon">
-         <svg class="site-icon site-icon-lg" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-        </span>
-        <h3>Alma Máter del Magisterio</h3>
-        <p>Toca para descubrir ↻</p>
-       </div>
-       <div class="flip-back"><p>El <strong>ISFODOSU</strong> (Instituto Superior de Formación Docente Salomé Ureña) perpetúa su misión formando a los futuros educadores de todo el territorio nacional.</p></div>
-      </div>
-     </div>
-    </div>
-   </section>
+      <!-- Flip cards de datos curiosos interactivos -->
+      <section class="content-section flip-section">
+        <div class="section-head reveal">
+          <div class="section-kicker">Interactúa y aprende</div>
+          <h2 class="section-title">
+            Secretos de su <span>vida y época</span>
+          </h2>
+          <p class="section-intro">
+            Pasa el cursor o toca cada tarjeta para revelar historias
+            fascinantes que marcaron su legado.
+          </p>
+        </div>
+        <div class="flip-grid">
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </span>
+                <h3>Hogar Intelectual</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  Sus cuatro hijos —Pedro, Max, Frank y Camila— se convirtieron
+                  en humanistas, educadores y diplomáticos de renombre
+                  internacional en América Latina.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <path
+                      d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+                    ></path>
+                  </svg>
+                </span>
+                <h3>El enigma de «Herminia»</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  Durante 7 años (1867–1874) firmó con el seudónimo
+                  <em>«Herminia»</em> para protegerse de los prejuicios
+                  machistas de la época, hasta que la admiración pública la
+                  impulsó a revelar su identidad.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <path
+                      d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                    ></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </span>
+                <h3>Panteón de la Patria</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  En 1972 sus restos fueron trasladados con honores militares al
+                  <strong>Panteón de la Patria</strong>, siendo una de las
+                  escasas heroínas consagradas en el mausoleo nacional
+                  dominicano.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                    <line x1="2" x2="22" y1="10" y2="10"></line>
+                  </svg>
+                </span>
+                <h3>Efigie en el billete</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  Su semblante adorna el
+                  <strong>billete de 500 pesos dominicanos</strong> junto a su
+                  hijo Pedro Henríquez Ureña, símbolo de una estirpe de
+                  sabiduría y orgullo patrio.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <rect
+                      width="18"
+                      height="18"
+                      x="3"
+                      y="4"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <line x1="16" x2="16" y1="2" y2="6"></line>
+                    <line x1="8" x2="8" y1="2" y2="6"></line>
+                    <line x1="3" x2="21" y1="10" y2="10"></line>
+                  </svg>
+                </span>
+                <h3>Día Nacional del Poeta</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  En conmemoración a su natalicio, cada
+                  <strong>21 de octubre</strong> la República Dominicana celebra
+                  el <em>Día Nacional del Poeta</em> en reconocimiento a su voz
+                  lírica inmortal.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card reveal">
+            <div class="flip-inner">
+              <div class="flip-front">
+                <span class="flip-icon">
+                  <svg class="site-icon site-icon-lg" viewBox="0 0 24 24">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </span>
+                <h3>Alma Máter del Magisterio</h3>
+                <p>Toca para descubrir ↻</p>
+              </div>
+              <div class="flip-back">
+                <p>
+                  El <strong>ISFODOSU</strong> (Instituto Superior de Formación
+                  Docente Salomé Ureña) perpetúa su misión formando a los
+                  futuros educadores de todo el territorio nacional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-   <!-- Familia e hijos con imágenes -->
-   <section class="content-section">
-    <div class="section-head reveal">
-     <div class="section-kicker">Una familia de gigantes</div>
-     <h2 class="section-title">Sus hijos, <span>su mayor obra</span></h2>
-     <p class="section-intro">La devoción formativa de Salomé floreció en sus hijos, quienes transformaron la crítica literaria y la pedagogía hispanoamericana.</p>
-    </div>
-    <div class="hijos-grid">
-     <div class="hijo-card reveal">
-      <div class="hijo-img-frame">
-       <img alt="Pedro Henríquez Ureña" class="hijo-thumb" loading="lazy" referrerpolicy="no-referrer"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg/500px-Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg"
-            onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg';"
-            style="width:100%; height:100%; object-fit:contain; object-position:center top; display:block;"/>
-      </div>
-      <div class="hijo-num">01</div>
-      <h3>Pedro Henríquez Ureña</h3>
-      <span class="hijo-tag">Humanista · Filólogo · Ensayista</span>
-      <p>Una de las cumbres intelectuales de América Latina. Autor de obras cumbres de la historia cultural hispanoamericana e inspirador del Grupo Sur en Argentina.</p>
-     </div>
-     <div class="hijo-card reveal">
-      <div class="hijo-img-frame">
-       <img alt="Max Henríquez Ureña" class="hijo-thumb" loading="lazy" referrerpolicy="no-referrer"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Max_Henriquez_Ure%C3%B1a.jpg/500px-Max_Henriquez_Ure%C3%B1a.jpg"
-            onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Max_Henriquez_Ure%C3%B1a.jpg';"
-            style="width:100%; height:100%; object-fit:contain; object-position:center top; display:block;"/>
-      </div>
-      <div class="hijo-num">02</div>
-      <h3>Max Henríquez Ureña</h3>
-      <span class="hijo-tag">Escritor · Diplomático · Crítico</span>
-      <p>Historiador fundamental de la literatura dominicana y antillana. Representó dignamente al país en foros internacionales de paz y letras.</p>
-     </div>
-     <div class="hijo-card reveal">
-      <div class="hijo-img-frame">
-       <img alt="Camila Henríquez Ureña" class="hijo-thumb" loading="lazy" referrerpolicy="no-referrer"
-            src="https://poesiadominicana.jmarcano.com/wp-content/uploads/sites/5/2022/01/Camila_Henriquez.jpg"
-            onerror="if(!this.dataset.step){this.dataset.step=1;this.src='https://mujeresbacanas.com/wp-content/uploads/2023/05/Camila-Henriquez-Urena-2.jpg';}else if(this.dataset.step==1){this.dataset.step=2;this.src='https://latinartmuseum.com/wp-content/uploads/2019/04/CAMILA.jpg';}else if(this.dataset.step==2){this.dataset.step=3;this.src='https://diccionario.funglode.org/wp-content/uploads/2019/01/Camila-Henriquez-Urena-scaled.jpg';}"
-            style="width:100%; height:100%; object-fit:contain; object-position:center top; display:block;"/>
-      </div>
-      <div class="hijo-num">03</div>
-      <h3>Camila Henríquez Ureña</h3>
-      <span class="hijo-tag">Ensayista · Educadora · Feminista</span>
-      <p>Heredera directa de la pasión pedagógica materna. Pionera en la docencia universitaria y defensora vanguardista de la emancipación de la mujer.</p>
-     </div>
-    </div>
-   </section>
+      <!-- Familia e hijos con imágenes -->
+      <section class="content-section">
+        <div class="section-head reveal">
+          <div class="section-kicker">Una familia de gigantes</div>
+          <h2 class="section-title">Sus hijos, <span>su mayor obra</span></h2>
+          <p class="section-intro">
+            La devoción formativa de Salomé floreció en sus hijos, quienes
+            transformaron la crítica literaria y la pedagogía hispanoamericana.
+          </p>
+        </div>
+        <div class="hijos-grid">
+          <div class="hijo-card reveal">
+            <div class="hijo-img-frame">
+              <img
+                alt="Pedro Henríquez Ureña"
+                class="hijo-thumb"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg/500px-Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Pedro_Henr%C3%ADquez_Ure%C3%B1a.jpg';
+                "
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  object-position: center top;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="hijo-num">01</div>
+            <h3>Pedro Henríquez Ureña</h3>
+            <span class="hijo-tag">Humanista · Filólogo · Ensayista</span>
+            <p>
+              Una de las cumbres intelectuales de América Latina. Autor de obras
+              cumbres de la historia cultural hispanoamericana e inspirador del
+              Grupo Sur en Argentina.
+            </p>
+          </div>
+          <div class="hijo-card reveal">
+            <div class="hijo-img-frame">
+              <img
+                alt="Max Henríquez Ureña"
+                class="hijo-thumb"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Max_Henriquez_Ure%C3%B1a.jpg/500px-Max_Henriquez_Ure%C3%B1a.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Max_Henriquez_Ure%C3%B1a.jpg';
+                "
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  object-position: center top;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="hijo-num">02</div>
+            <h3>Max Henríquez Ureña</h3>
+            <span class="hijo-tag">Escritor · Diplomático · Crítico</span>
+            <p>
+              Historiador fundamental de la literatura dominicana y antillana.
+              Representó dignamente al país en foros internacionales de paz y
+              letras.
+            </p>
+          </div>
+          <div class="hijo-card reveal">
+            <div class="hijo-img-frame">
+              <img
+                alt="Camila Henríquez Ureña"
+                class="hijo-thumb"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                src="https://poesiadominicana.jmarcano.com/wp-content/uploads/sites/5/2022/01/Camila_Henriquez.jpg"
+                onerror="
+                  if (!this.dataset.step) {
+                    this.dataset.step = 1;
+                    this.src =
+                      'https://mujeresbacanas.com/wp-content/uploads/2023/05/Camila-Henriquez-Urena-2.jpg';
+                  } else if (this.dataset.step == 1) {
+                    this.dataset.step = 2;
+                    this.src =
+                      'https://latinartmuseum.com/wp-content/uploads/2019/04/CAMILA.jpg';
+                  } else if (this.dataset.step == 2) {
+                    this.dataset.step = 3;
+                    this.src =
+                      'https://diccionario.funglode.org/wp-content/uploads/2019/01/Camila-Henriquez-Urena-scaled.jpg';
+                  }
+                "
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: contain;
+                  object-position: center top;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="hijo-num">03</div>
+            <h3>Camila Henríquez Ureña</h3>
+            <span class="hijo-tag">Ensayista · Educadora · Feminista</span>
+            <p>
+              Heredera directa de la pasión pedagógica materna. Pionera en la
+              docencia universitaria y defensora vanguardista de la emancipación
+              de la mujer.
+            </p>
+          </div>
+        </div>
+      </section>
 
-   <!-- Monumento e Inmortalidad con imagen -->
-   <section class="content-section monument-section">
-    <div class="monument-grid" style="display:grid; grid-template-columns: minmax(280px, 420px) 1fr; gap:40px; align-items:center;">
-     <div class="monument-visual reveal">
-      <div class="monument-frame" style="border: 1px solid rgba(229,82,91,.5); border-radius: 8px; overflow: hidden; background: #160e10; box-shadow: 0 16px 40px rgba(0,0,0,.6);">
-       <img referrerpolicy="no-referrer" alt="Estatua conmemorativa de Salomé Ureña en Santo Domingo" class="monument-img" loading="lazy" 
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg/800px-StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg" 
-            onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/a/a0/StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg';" 
-            style="width: 100%; height: 460px; object-fit: contain; object-position: center top; display: block; background: #140d0f; padding: 8px;"/>
-       <div class="monument-caption" style="padding: 14px 18px; background: #180f12; text-align: center; border-top: 1px solid rgba(229,82,91,.3);">
-        <strong style="display:block; color:#e5525b; font-family:'Montserrat',Arial,sans-serif; font-size:12px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:4px;">Estatua conmemorativa de Salomé Ureña</strong>
-        <span style="display:block; font-size:12px; color:#c8beb9;">Plaza de la Poesía · Ciudad Colonial, Santo Domingo</span>
-       </div>
+      <!-- Monumento e Inmortalidad con imagen -->
+      <section class="content-section monument-section">
+        <div
+          class="monument-grid"
+          style="
+            display: grid;
+            grid-template-columns: minmax(280px, 420px) 1fr;
+            gap: 40px;
+            align-items: center;
+          "
+        >
+          <div class="monument-visual reveal">
+            <div
+              class="monument-frame"
+              style="
+                border: 1px solid rgba(229, 82, 91, 0.5);
+                border-radius: 8px;
+                overflow: hidden;
+                background: #160e10;
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+              "
+            >
+              <img
+                referrerpolicy="no-referrer"
+                alt="Estatua conmemorativa de Salomé Ureña en Santo Domingo"
+                class="monument-img"
+                loading="lazy"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg/800px-StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg"
+                onerror="
+                  this.onerror = null;
+                  this.src =
+                    'https://upload.wikimedia.org/wikipedia/commons/a/a0/StatueSalom%C3%A9Ure%C3%B1a_2021-12.jpg';
+                "
+                style="
+                  width: 100%;
+                  height: 460px;
+                  object-fit: contain;
+                  object-position: center top;
+                  display: block;
+                  background: #140d0f;
+                  padding: 8px;
+                "
+              />
+              <div
+                class="monument-caption"
+                style="
+                  padding: 14px 18px;
+                  background: #180f12;
+                  text-align: center;
+                  border-top: 1px solid rgba(229, 82, 91, 0.3);
+                "
+              >
+                <strong
+                  style="
+                    display: block;
+                    color: #e5525b;
+                    font-family: &quot;Montserrat&quot;, Arial, sans-serif;
+                    font-size: 12px;
+                    letter-spacing: 0.06em;
+                    text-transform: uppercase;
+                    margin-bottom: 4px;
+                  "
+                  >Estatua conmemorativa de Salomé Ureña</strong
+                >
+                <span style="display: block; font-size: 12px; color: #c8beb9"
+                  >Plaza de la Poesía · Ciudad Colonial, Santo Domingo</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="death-layout reveal">
+            <div class="section-kicker">El final y la eternidad</div>
+            <h2 class="sub-title">La pantalla se apaga, el espíritu vence</h2>
+            <p>
+              En 1893 la tuberculosis la forzó a pausar las aulas del amado
+              Instituto de Señoritas. En sus últimos años su pluma transitó
+              hacia una lírica de honda introspección existencial, abrazando el
+              dolor con serenidad y fe republicana.
+            </p>
+            <p>
+              Falleció el <strong>6 de marzo de 1897</strong> a la temprana edad
+              de 46 años. Desde 1972 su descanso supremo tiene lugar en el
+              <strong>Panteón de la Patria</strong>, como faro moral de las
+              generaciones venideras.
+            </p>
+            <blockquote class="death-quote">
+              "Me cercan doquier sombras de muerte<br />y rebosa en mi pecho la
+              amargura;<br />mas ¡ah! meced con vuestro arrullo el alma sola."
+              <cite>— «Sombras» (1887)</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fuentes -->
+      <section class="content-section sources-section">
+        <div class="section-kicker">Para seguir aprendiendo</div>
+        <h2 class="section-title">Fuentes Históricas y Bibliotecas</h2>
+        <p class="section-intro">
+          Explora archivos y repositorios documentales oficiales sobre su obra.
+        </p>
+        <ul class="source-links">
+          <li>
+            <a
+              href="https://es.wikipedia.org/wiki/Salom%C3%A9_Ure%C3%B1a"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Biografía completa — Wikipedia en Español</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://commons.wikimedia.org/wiki/Category:Salome_Ure%C3%B1a"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Galería multimedia de dominio público — Wikimedia Commons</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.biografiasyvidas.com/biografia/u/urena.htm"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Biografía y contexto — Biografías y Vidas</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.isfodosu.edu.do"
+              rel="noopener noreferrer"
+              target="_blank"
+              >ISFODOSU — Instituto Superior de Formación Docente Salomé
+              Ureña</a
+            >
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-mark">
+        <img
+          src="img/LogoCineSalomé.png"
+          alt="Cine Salomé"
+          class="footer-logo"
+        />
       </div>
-     </div>
-     <div class="death-layout reveal">
-      <div class="section-kicker">El final y la eternidad</div>
-      <h2 class="sub-title">La pantalla se apaga, el espíritu vence</h2>
-      <p>En 1893 la tuberculosis la forzó a pausar las aulas del amado Instituto de Señoritas. En sus últimos años su pluma transitó hacia una lírica de honda introspección existencial, abrazando el dolor con serenidad y fe republicana.</p>
-      <p>Falleció el <strong>6 de marzo de 1897</strong> a la temprana edad de 46 años. Desde 1972 su descanso supremo tiene lugar en el <strong>Panteón de la Patria</strong>, como faro moral de las generaciones venideras.</p>
-      <blockquote class="death-quote">
-       "Me cercan doquier sombras de muerte<br>y rebosa en mi pecho la amargura;<br>mas ¡ah! meced con vuestro arrullo el alma sola."
-       <cite>— «Sombras» (1887)</cite>
-      </blockquote>
-     </div>
-    </div>
-   </section>
-
-   <!-- Fuentes -->
-   <section class="content-section sources-section">
-    <div class="section-kicker">Para seguir aprendiendo</div>
-    <h2 class="section-title">Fuentes Históricas y Bibliotecas</h2>
-    <p class="section-intro">Explora archivos y repositorios documentales oficiales sobre su obra.</p>
-    <ul class="source-links">
-     <li><a href="https://es.wikipedia.org/wiki/Salom%C3%A9_Ure%C3%B1a" rel="noopener noreferrer" target="_blank">Biografía completa — Wikipedia en Español</a></li>
-     <li><a href="https://commons.wikimedia.org/wiki/Category:Salome_Ure%C3%B1a" rel="noopener noreferrer" target="_blank">Galería multimedia de dominio público — Wikimedia Commons</a></li>
-     <li><a href="https://www.biografiasyvidas.com/biografia/u/urena.htm" rel="noopener noreferrer" target="_blank">Biografía y contexto — Biografías y Vidas</a></li>
-     <li><a href="https://www.isfodosu.edu.do" rel="noopener noreferrer" target="_blank">ISFODOSU — Instituto Superior de Formación Docente Salomé Ureña</a></li>
-    </ul>
-   </section>
-  </main>
-
-  <footer>
-   <div class="footer-mark"><img src="img/LogoCineSalom\u00e9.png" alt="Cine Salom\u00e9" class="footer-logo"/></div>
-   <p class="footer-quote">La pantalla se apaga. Su legado permanece.</p>
-   <div class="footer-bottom">Una vida que inspira · Experiencia educativa inspirada en el cine</div>
-  </footer>
-  <button aria-label="Volver arriba" class="back-top" id="backTop">↑</button>
-  <script src="style/js/common.js"></script>
-  <script src="style/js/biografia.js"></script>
-  <script src="api-config.js"></script>
-  <script src="style/js/auth.js"></script>
- </body>
+      <p class="footer-quote">La pantalla se apaga. Su legado permanece.</p>
+      <div class="footer-bottom">
+        Una vida que inspira · Experiencia educativa inspirada en el cine
+      </div>
+    </footer>
+    <button aria-label="Volver arriba" class="back-top" id="backTop">↑</button>
+    <script src="style/js/common.js"></script>
+    <script src="style/js/biografia.js"></script>
+    <script src="api-config.js"></script>
+    <script src="style/js/auth.js"></script>
+  </body>
 </html>
