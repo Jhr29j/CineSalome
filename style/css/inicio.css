@@ -291,3 +291,144 @@
 .portrait-caption a:hover {
   text-decoration: underline;
 }
+
+/* Icono en quick cards: diseño moderado y destacado */
+.qcard-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 66px;
+  height: 66px;
+  border-radius: 12px;
+  background: rgba(229, 82, 91, 0.12);
+  border: 1px solid rgba(229, 82, 91, 0.35);
+  margin-bottom: 16px;
+  transition: transform .3s ease, background .3s ease, border-color .3s ease;
+}
+
+.quick-card:hover .qcard-icon {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(229, 82, 91, 0.22);
+  border-color: var(--rojo-claro);
+}
+
+/* quick-grid de 3 columnas en desktop, 2 en tablet, 1 en móvil */
+@media (min-width: 801px) {
+  .quick-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media (max-width: 800px) and (min-width: 501px) {
+  .quick-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+/* Tarjeta CTA especial del quiz */
+.nav-cta-card { border-top-color: var(--rojo) !important; background: #2c1315 !important; }
+.nav-cta-card:hover { background: #3d1a1e !important; }
+
+/* ── Sección stats ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 36px;
+}
+.stat-card {
+  background: #26191b;
+  padding: 34px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-top: 3px solid var(--borde);
+  transition: border-color .3s ease, background .3s ease, transform .35s cubic-bezier(0.16,1,0.3,1);
+}
+.stat-card:hover {
+  border-top-color: var(--rojo-claro);
+  background: #32201f;
+  transform: translateY(-6px);
+}
+.stat-number {
+  font: 900 clamp(46px, 6vw, 72px)/1 'Montserrat', Arial, sans-serif;
+  color: var(--rojo-claro);
+  letter-spacing: -.05em;
+  display: block;
+}
+.stat-label {
+  font: 700 12px/1 'Montserrat', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--blanco);
+  display: block;
+}
+.stat-desc {
+  font-size: 12px;
+  color: var(--gris-texto);
+  max-width: 180px;
+  text-align: center;
+  display: block;
+  line-height: 1.5;
+}
+@media (max-width: 800px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Sección cita rotativa ── */
+.quote-section { text-align: center; background: var(--negro) !important; }
+.quote-rotativa {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  padding: 10px 20px 0;
+}
+.quote-deco {
+  font: 900 140px/0.6 'Montserrat', serif;
+  color: var(--rojo-claro);
+  opacity: .18;
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  pointer-events: none;
+  user-select: none;
+}
+.quote-text {
+  font: 500 clamp(17px, 2.4vw, 24px)/1.65 'DM Sans', sans-serif;
+  color: var(--blanco);
+  min-height: 80px;
+  white-space: pre-line;
+  position: relative;
+  z-index: 1;
+  transition: opacity .4s ease, transform .4s ease;
+}
+.quote-obra {
+  margin-top: 18px;
+  color: var(--rojo-claro);
+  font: 700 13px 'Montserrat', Arial, sans-serif;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity .4s ease .2s;
+}
+.quote-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.qdot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(229,82,91,.3);
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+  padding: 0;
+}
+.qdot.active {
+  background: var(--rojo-claro);
+  transform: scale(1.4);
+}
+.qdot:hover { background: rgba(229,82,91,.7); }
+

@@ -42,6 +42,58 @@ button
   font:inherit
 }
 
+/* Iconos vectoriales profesionales y moderados */
+.site-icon
+{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;
+  height:42px;
+  stroke:var(--rojo-claro);
+  fill:none;
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vertical-align:middle;
+  flex-shrink:0;
+  transition:transform .3s ease, stroke .3s ease;
+}
+.site-icon-lg
+{
+  width:54px;
+  height:54px;
+  stroke-width:2.2;
+}
+.site-icon-xl
+{
+  width:68px;
+  height:68px;
+  stroke-width:2.2;
+}
+
+/* Contenedor tipo insignia para iconos moderados */
+.icon-badge
+{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:68px;
+  height:68px;
+  border-radius:12px;
+  background:rgba(229,82,91,.12);
+  border:1px solid rgba(229,82,91,.35);
+  margin-bottom:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  transition:transform .3s ease, background .3s ease, border-color .3s ease;
+}
+.icon-badge:hover
+{
+  transform:scale(1.06);
+  background:rgba(229,82,91,.22);
+  border-color:var(--rojo-claro);
+}
+
 .title,h1,h2,h3,.logo,.year
 {
   font-family:'Montserrat',Arial,sans-serif;
@@ -138,13 +190,20 @@ nav.scrolled
 {
   content:'';
   position:absolute;
-  width:210px;
-  height:210px;
+  width:220px;
+  height:220px;
   right:-75px;
   bottom:-102px;
-  border:20px dotted rgba(229,82,91,.19);
+  border:20px dotted rgba(229,82,91,.28);
   border-radius:50%;
-  transform:rotate(20deg)
+  animation:rotateDottedCircle 24s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes rotateDottedCircle
+{
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
 }
 
 .eyebrow,.section-kicker

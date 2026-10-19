@@ -1,141 +1,477 @@
 .about-grid
 {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:52px;
+  grid-template-columns:1.05fr 1fr;
+  gap:48px;
   align-items:center
 }
 
-.quote-card
+.bio-visual-card
 {
-  min-height:340px;
-  padding:38px;
   display:flex;
   flex-direction:column;
+  gap:20px;
+}
+
+.portrait-badge-frame
+{
+  position:relative;
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(229,82,91,.5);
+  box-shadow:var(--sombra);
+  background:radial-gradient(circle at center, #2e1518 0%, #150d0f 100%);
+  height:420px;
+  display:flex;
   justify-content:center;
-  background:linear-gradient(145deg,#7b3840,#3b2023);
+  align-items:center;
+  padding:12px;
+}
+
+.bio-portrait-img
+{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center top;
+  border-radius:4px;
+  filter:contrast(105%);
+  transition:transform .4s ease;
+}
+
+.portrait-badge-frame:hover .bio-portrait-img
+{
+  transform:scale(1.02);
+}
+
+.portrait-tag-overlay
+{
+  position:absolute;
+  bottom:14px;
+  left:14px;
+  background:rgba(17,13,14,.92);
   border:1px solid var(--borde);
-  transition:transform .4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .4s ease, border-color .3s ease;
+  color:var(--rojo-claro);
+  font:700 11px 'Montserrat',Arial,sans-serif;
+  letter-spacing:.08em;
+  padding:6px 14px;
+  border-radius:4px;
+  backdrop-filter:blur(8px);
 }
 
-.quote-card:hover
+.quote-mini
 {
-  transform:translateY(-6px);
-  border-color:var(--rojo-claro);
-  box-shadow:0 20px 48px rgba(0,0,0,.55), 0 0 20px rgba(229,82,91,.2);
+  padding:22px 26px;
+  background:#26181b;
+  border-left:4px solid var(--rojo-claro);
+  border-radius:4px;
 }
 
-.quote-card blockquote
+.quote-mini blockquote
 {
-  font:clamp(27px,3.2vw,40px)/1.35 'Libre Baskerville',Georgia,serif
+  font:italic 16px/1.6 'DM Sans',sans-serif;
+  color:var(--blanco);
 }
 
-.quote-card p
+.quote-mini cite
 {
-  margin-top:22px;
-  color:#f1d8d7;
-  font-size:11px;
-  text-transform:uppercase
+  display:block;
+  margin-top:8px;
+  font:700 11px 'Montserrat',Arial,sans-serif;
+  color:var(--rojo-claro);
+  letter-spacing:.06em;
+}
+
+.sub-title
+{
+  font-size:clamp(26px,3vw,38px);
+  line-height:1.15;
+  margin-bottom:20px;
+  color:var(--blanco);
 }
 
 .bio-copy p
 {
   color:var(--gris-texto);
-  margin:0 0 15px
+  margin:0 0 16px;
+  font-size:16px;
+  line-height:1.75;
 }
 
 .bio-copy strong
 {
-  color:var(--rojo-claro)
+  color:var(--blanco);
 }
 
 .fact-strip
 {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:25px
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:28px
 }
 
 .fact
 {
-  background:#2a2223;
-  border:1px solid rgba(248,242,237,.1);
-  padding:15px;
-  transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1), background .25s ease, border-color .25s ease, box-shadow .3s ease;
+  background:#241618;
+  border:1px solid rgba(229,82,91,.25);
+  border-top:3px solid var(--rojo-claro);
+  padding:16px 12px;
+  text-align:center;
+  transition:transform .3s cubic-bezier(0.16, 1, 0.3, 1), background .25s ease;
 }
 
 .fact:hover
 {
-  transform:translateY(-5px) scale(1.02);
-  background:#382729;
-  border-color:var(--rojo-claro);
-  box-shadow:0 12px 28px rgba(0,0,0,.45);
+  transform:translateY(-5px);
+  background:#331b1f;
 }
 
 .fact strong
 {
   display:block;
   color:var(--rojo-claro);
-  font:700 24px 'Libre Baskerville',Georgia,serif
+  font:900 24px 'Montserrat',Arial,sans-serif;
 }
 
 .fact span
 {
-  font-size:12px;
-  color:var(--gris-texto)
+  font-size:11px;
+  color:var(--gris-texto);
+  display:block;
+  margin-top:4px;
 }
 
-@media(max-width:760px)
+/* Flip cards de curiosidades */
+.flip-grid
 {
-  .about-grid
-  {
-    grid-template-columns:1fr;
-    gap:30px
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:34px;
+}
+
+.flip-card
+{
+  background:transparent;
+  height:240px;
+  perspective:1000px;
+  cursor:pointer;
+}
+
+.flip-inner
+{
+  position:relative;
+  width:100%;
+  height:100%;
+  text-align:center;
+  transition:transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-inner,
+.flip-card.flipped .flip-inner
+{
+  transform:rotateY(180deg);
+}
+
+.flip-front, .flip-back
+{
+  position:absolute;
+  inset:0;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  border-radius:6px;
+  padding:28px 22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--borde);
+}
+
+.flip-front
+{
+  background:#26181b;
+  border-top:3px solid var(--rojo);
+}
+
+.flip-front .flip-icon
+{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:64px;
+  height:64px;
+  border-radius:12px;
+  background:rgba(229,82,91,.12);
+  border:1px solid rgba(229,82,91,.35);
+  margin-bottom:14px;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+  transition:transform .3s ease;
+}
+
+.flip-front h3
+{
+  font-size:18px;
+  color:var(--blanco);
+  margin-bottom:8px;
+}
+
+.flip-front p
+{
+  font-size:12px;
+  color:var(--rojo-claro);
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.flip-back
+{
+  background:linear-gradient(145deg,#3d171b,#201013);
+  border:1px solid var(--rojo-claro);
+  transform:rotateY(180deg);
+}
+
+.flip-back p
+{
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--blanco);
+}
+
+/* Hijos Grid */
+.hijos-grid
+{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:32px;
+}
+
+.hijo-card
+{
+  background:#241618;
+  border:1px solid var(--borde);
+  border-radius:6px;
+  padding:26px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  transition:transform .35s ease, border-color .3s ease;
+}
+
+.hijo-card:hover
+{
+  transform:translateY(-6px);
+  border-color:var(--rojo-claro);
+  background:#2f1a1d;
+}
+
+.hijo-img-frame
+{
+  width:100%;
+  height:240px;
+  border-radius:8px;
+  overflow:hidden;
+  margin-bottom:18px;
+  background:#140d0f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(229,82,91,.35);
+  box-shadow:inset 0 0 20px rgba(0,0,0,.6);
+  padding:6px;
+  box-sizing:border-box;
+}
+
+.hijo-thumb
+{
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center top;
+  filter:contrast(102%);
+  transition:transform .4s ease, filter .3s ease;
+  display:block;
+}
+
+.hijo-card:hover .hijo-thumb
+{
+  transform:scale(1.04);
+}
+
+.hijo-img-frame.default-bg
+{
+  background:linear-gradient(135deg,#38161a,#1a0e10);
+}
+
+.hijo-icon
+{
+  font-size:48px;
+  opacity:.8;
+}
+
+.hijo-num
+{
+  font:900 13px 'Montserrat',Arial,sans-serif;
+  color:var(--rojo-claro);
+  letter-spacing:.12em;
+  margin-bottom:6px;
+}
+
+.hijo-card h3
+{
+  font-size:20px;
+  color:var(--blanco);
+  margin-bottom:4px;
+}
+
+.hijo-tag
+{
+  font:700 11px 'Montserrat',Arial,sans-serif;
+  color:var(--rojo-claro);
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  margin-bottom:12px;
+  display:inline-block;
+}
+
+.hijo-card p
+{
+  font-size:14px;
+  color:var(--gris-texto);
+  line-height:1.6;
+}
+
+/* Monumento / Muerte Grid */
+.monument-grid
+{
+  display:grid;
+  grid-template-columns:minmax(280px, 420px) 1fr;
+  gap:44px;
+  align-items:center;
+}
+
+.monument-frame
+{
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid rgba(229,82,91,.5);
+  box-shadow:var(--sombra);
+  position:relative;
+  background:#160e10;
+  max-width:420px;
+}
+
+.monument-img
+{
+  width:100%;
+  height:460px;
+  object-fit:contain;
+  object-position:center top;
+  display:block;
+  background:#140d0f;
+  padding:8px;
+  filter:contrast(105%);
+  transition:transform .5s ease;
+}
+
+.monument-frame:hover .monument-img
+{
+  transform:scale(1.02);
+}
+
+.monument-caption
+{
+  padding:14px 16px;
+  background:#150f11;
+  text-align:center;
+  border-top:1px solid var(--borde);
+}
+
+.monument-caption strong
+{
+  display:block;
+  color:var(--rojo-claro);
+  font:700 12px 'Montserrat',Arial,sans-serif;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  margin-bottom:3px;
+}
+
+.monument-caption span
+{
+  display:block;
+  font-size:12px;
+  color:var(--gris-texto);
+}
+
+.death-layout p
+{
+  font-size:16px;
+  color:var(--gris-texto);
+  line-height:1.75;
+  margin-bottom:16px;
+}
+
+.death-quote
+{
+  margin-top:20px;
+  padding:20px 24px;
+  background:#26181b;
+  border-left:3px solid var(--rojo);
+  font:italic 16px/1.6 'DM Sans',sans-serif;
+  color:var(--blanco);
+}
+
+.death-quote cite
+{
+  display:block;
+  margin-top:8px;
+  font:700 11px 'Montserrat',Arial,sans-serif;
+  color:var(--rojo-claro);
+  text-transform:uppercase;
+}
+
+/* Fuentes */
+.sources-section { border-top: 1px solid var(--borde); }
+.source-links { display:grid; gap:12px; list-style:none; margin-top:24px; }
+.source-links a { display:inline-flex; align-items:center; color:var(--blanco); text-decoration:none; border-bottom:1px solid var(--borde); padding:12px 0; transition:color .2s ease; }
+.source-links a::after { content:' ↗'; color:var(--rojo-claro); margin-left:8px; }
+.source-links a:hover { color:var(--rojo-claro); }
+
+@media(max-width:860px)
+{
+  .about-grid, .monument-grid { grid-template-columns:1fr; gap:32px; }
+  .flip-grid { grid-template-columns:repeat(2,1fr); }
+  .hijos-grid { 
+    grid-template-columns:repeat(2,1fr); 
+    gap:18px; 
   }
+  .hijo-img-frame { height:220px; }
+  .fact-strip { grid-template-columns:repeat(2,1fr); }
+}
 
-  .fact-strip
-  {
-    gap:6px
+@media(max-width:540px)
+{
+  .flip-grid, .fact-strip { grid-template-columns:1fr; }
+  .hijos-grid { 
+    grid-template-columns:1fr; 
+    gap:20px;
+    max-width:380px;
+    margin-left:auto;
+    margin-right:auto;
   }
-
-  .fact
-  {
-    padding:11px
-  }
-
-  .fact strong
-  {
-    font-size:22px
-  }
+  .hijo-img-frame { height:220px; }
 }
 
-.sources-section {
-  border-top: 1px solid var(--borde);
-}
-
-.source-links {
-  display: grid;
-  gap: 12px;
-  list-style: none;
-  margin-top: 24px;
-}
-
-.source-links a {
-  display: inline-flex;
-  align-items: center;
-  color: var(--blanco);
-  text-decoration: none;
-  border-bottom: 1px solid var(--borde);
-  padding: 12px 0;
-}
-
-.source-links a::after {
-  content: ' ↗';
-  color: var(--rojo-claro);
-  margin-left: 8px;
-}
-
-.source-links a:hover {
-  color: var(--rojo-claro);
+@media(max-width:380px)
+{
+  .hijos-grid { max-width:100%; }
+  .hijo-img-frame { height:190px; }
+  .hijo-card { padding:18px; }
 }
