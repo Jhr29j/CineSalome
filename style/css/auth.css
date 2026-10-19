@@ -133,13 +133,34 @@
   padding:12px 4px;
   font-size:12px;
   font-weight:800;
-  cursor:pointer
+  cursor:pointer;
+  transition:color .22s ease, border-color .22s ease
 }
 
 .auth-tab.active
 {
   color:#fff;
   border-bottom-color:#ef303b
+}
+
+/* ── Animación de aparición del contenido al cambiar tab ─── */
+@keyframes authFadeIn
+{
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.auth-card form.tab-anim,
+.auth-card .form-anim
+{
+  animation:authFadeIn .32s cubic-bezier(0.16,1,0.3,1)
+}
+
+/* Aplica la animación al h1 y subtítulo también */
+.auth-card h1.tab-anim,
+.auth-card .auth-subtitle.tab-anim
+{
+  animation:authFadeIn .28s cubic-bezier(0.16,1,0.3,1)
 }
 
 .auth-card h1
@@ -332,4 +353,243 @@
   {
     font-size:40px
   }
+}
+
+/* ── Botón de ojo para mostrar/ocultar contraseña ─────────────────────── */
+.password-wrapper
+{
+  position:relative;
+  display:flex;
+  align-items:center
+}
+
+.password-wrapper input
+{
+  padding-right:44px
+}
+
+.password-toggle
+{
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:100%;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#7a6e70;
+  padding:0;
+  transition:color .2s
+}
+
+.password-toggle:hover
+{
+  color:#ef202b
+}
+
+.password-toggle svg
+{
+  width:18px;
+  height:18px;
+  pointer-events:none;
+  flex-shrink:0
+}
+
+/* ── Enlace "olvidé mi contraseña" ───────────────────────────────────────── */
+.forgot-link
+{
+  display:block;
+  text-align:right;
+  font-size:11px;
+  font-weight:700;
+  color:#a99a9d;
+  text-decoration:none;
+  margin-top:-8px;
+  margin-bottom:10px;
+  letter-spacing:.03em;
+  transition:color .2s
+}
+
+.forgot-link:hover
+{
+  color:#ef202b
+}
+
+/* ── Overlay / Modal de verificación ────────────────────────────────────── */
+.modal-overlay
+{
+  position:fixed;
+  inset:0;
+  background:#00000088;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s
+}
+
+.modal-overlay.open
+{
+  opacity:1;
+  pointer-events:all
+}
+
+.modal-box
+{
+  background:#191214;
+  border:1px solid rgba(229,82,91,.24);
+  border-radius:6px;
+  padding:36px 36px 28px;
+  width:min(440px,100%);
+  box-shadow:0 24px 70px #0009;
+  transform:translateY(16px);
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1)
+}
+
+.modal-overlay.open .modal-box
+{
+  transform:translateY(0)
+}
+
+.modal-kicker
+{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#ef202b;
+  margin-bottom:8px
+}
+
+.modal-box h2
+{
+  font:900 22px/1.1 Montserrat,sans-serif;
+  margin:0 0 10px
+}
+
+.modal-box p
+{
+  font-size:13px;
+  color:#a99a9d;
+  margin:0 0 22px;
+  line-height:1.6
+}
+
+.modal-box p strong
+{
+  color:#fff
+}
+
+/* Input del código de 6 dígitos */
+.code-input
+{
+  width:100%;
+  background:#100c0d;
+  border:1px solid #ffffff24;
+  color:#fff;
+  padding:14px;
+  border-radius:3px;
+  font-size:28px;
+  font-weight:900;
+  font-family:monospace;
+  letter-spacing:.3em;
+  text-align:center;
+  outline:none;
+  margin-bottom:16px;
+  transition:border-color .2s
+}
+
+.code-input:focus
+{
+  border-color:#ef202b
+}
+
+.modal-actions
+{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap
+}
+
+.modal-actions .btn
+{
+  flex:1;
+  min-width:120px;
+  justify-content:center;
+  padding:13px
+}
+
+.btn-ghost
+{
+  background:transparent;
+  border:1px solid #ffffff24;
+  color:#a99a9d;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  border-radius:3px;
+  padding:13px 20px;
+  transition:border-color .2s,color .2s,background .2s
+}
+
+.btn-ghost:hover
+{
+  border-color:#ef202b;
+  color:#fff;
+  background:rgba(239,32,43,.06)
+}
+
+
+.modal-resend
+{
+  margin-top:14px;
+  font-size:12px;
+  color:#7a6e70;
+  text-align:center
+}
+
+.modal-resend button
+{
+  background:none;
+  border:none;
+  color:#a99a9d;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:700;
+  padding:0;
+  text-decoration:underline;
+  transition:color .2s
+}
+
+.modal-resend button:hover
+{
+  color:#ef202b
+}
+
+.modal-resend button:disabled
+{
+  color:#5c5254;
+  cursor:not-allowed;
+  text-decoration:none
+}
+
+/* Paso "nueva contraseña" dentro del modal */
+.modal-step
+{
+  display:none
+}
+
+.modal-step.active
+{
+  display:block
 }

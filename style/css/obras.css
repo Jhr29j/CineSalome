@@ -1,4 +1,4 @@
-/* Banner visual de Obras */
+﻿/* Banner visual de Obras */
 .obras-banner-card
 {
   display:grid;
@@ -286,3 +286,4 @@
   .work-meta h3 { font-size:17px; }
   .work-meta { gap:14px; }
 }
+
