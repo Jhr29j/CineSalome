@@ -60,7 +60,8 @@ def admin_login(data: AdminLoginInput):
     if not str(row.get("CONTRASEÑA", "")).startswith("pbkdf2_sha256$"):
         supabase.table("USUARIOS_ADMIN").update({"CONTRASEÑA": hash_password(data.CONTRASEÑA)}).eq("ID_ADMIN", row["ID_ADMIN"]).execute()
     token = create_token({"sub": usuario, "role": "admin", "id": row.get("ID_ADMIN"), "name": row.get("NOMBRE_COMPLETO")})
-    return {"access_token": token, "token_type": "bearer", "user": {"ID_ADMIN": row.get("ID_ADMIN"), "USUARIO": usuario, "CORREO": row.get("CORREO"), "NOMBRE_COMPLETO": row.get("NOMBRE_COMPLETO"), "role": "admin"}}
+    debe_cambiar = bool(row.get("DEBE_CAMBIAR_CONTRASENA", False))
+    return {"access_token": token, "token_type": "bearer", "user": {"ID_ADMIN": row.get("ID_ADMIN"), "USUARIO": usuario, "CORREO": row.get("CORREO"), "NOMBRE_COMPLETO": row.get("NOMBRE_COMPLETO"), "role": "admin", "DEBE_CAMBIAR_CONTRASENA": debe_cambiar}}
 
 @router.get("/me")
 def me(user: dict = Depends(current_user)):
