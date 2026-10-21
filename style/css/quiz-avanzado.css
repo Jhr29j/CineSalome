@@ -1,0 +1,4 @@
+@import url("quiz.css");
+.option.selected:not(:disabled) { border-color: var(--rojo-claro); background: #372528; box-shadow: -4px 0 0 var(--rojo-claro); }
+.option:focus-visible { outline: 2px solid var(--rojo-claro); outline-offset: 2px; }
+.quiz-controls { gap: 10px; flex-wrap: wrap; }
