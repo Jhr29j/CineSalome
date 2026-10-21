@@ -64,7 +64,9 @@ def _email_template(title: str, code: str, message: str, color: str = "#ef202b")
           <!-- Header -->
           <tr>
             <td style="background:linear-gradient(135deg,#291214,#1a0d0f);padding:32px 40px;border-bottom:2px solid {color}20;">
-              <p style="margin:0;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:{color};">CINE SALOMÉ</p>
+              <p style="margin:0;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:{color};">
+                <img src="../img/LogoCineSalomé.png" alt="Cine Salomé" class="brand-logo" style="height:40px;">
+              </p>
               <h1 style="margin:10px 0 0;font-size:26px;font-weight:900;letter-spacing:-.03em;color:#fff;">{title}</h1>
             </td>
           </tr>
