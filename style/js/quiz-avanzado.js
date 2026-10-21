@@ -165,55 +165,132 @@ const questions = [
     "explain": "La ampliación de la educación femenina se vinculó con un ideal más amplio de progreso nacional."
   }
 ];
-let current=0,score=0,selected=null,answered=false;
-const byId=id=>document.getElementById(id);
-const qCounter=byId('qCounter'),qScore=byId('qScore'),qText=byId('qText'),qOptions=byId('qOptions'),qFeedback=byId('qFeedback'),progressFill=byId('progressFill'),confirmAnswer=byId('confirmAnswer'),nextQuestion=byId('nextQuestion');
-function renderQuestion(){
- selected=null;answered=false;
- const item=questions[current];
- qCounter.textContent=`Pregunta ${current+1} de ${questions.length}`;
- qText.textContent=item.q;qOptions.replaceChildren();qFeedback.textContent='';
- qFeedback.classList.remove('feedback-correct','feedback-wrong');
- confirmAnswer.classList.add('hidden');nextQuestion.classList.add('hidden');
- progressFill.style.width=`${current/questions.length*100}%`;
- item.options.forEach((option,index)=>{
-  const button=document.createElement('button');button.type='button';button.className='option';
-  button.textContent=`${String.fromCharCode(65+index)}. ${option}`;
-  button.setAttribute('aria-pressed','false');
-  button.addEventListener('click',()=>{
-   if(answered)return;
-   selected=index;
-   qOptions.querySelectorAll('button').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-pressed','false')});
-   button.classList.add('selected');button.setAttribute('aria-pressed','true');
-   confirmAnswer.classList.remove('hidden');
-  });qOptions.append(button);
- });
+/* ── Sistema de tandas — modo careo (revelar respuesta) ─────────────────
+   15 preguntas → 3 tandas de 5.
+   No hay selección ni puntos: el usuario piensa y pulsa "Ver respuesta"
+   para que se ilumine la opción correcta y aparezca la explicación.
+   ─────────────────────────────────────────────────────────────────────── */
+
+const TANDA_SIZE   = 5;
+const TOTAL_TANDAS = 3;
+
+let shuffledQuestions = [];
+let tanda         = 0;
+let tandaQuestions = [];
+let current       = 0;
+let revealed      = false;
+
+const byId         = id => document.getElementById(id);
+const qCounter     = byId('qCounter');
+const qText        = byId('qText');
+const qOptions     = byId('qOptions');
+const qFeedback    = byId('qFeedback');
+const progressFill = byId('progressFill');
+const revealBtn    = byId('revealAnswer');
+const nextQuestion = byId('nextQuestion');
+
+/* Fisher-Yates */
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
-confirmAnswer.addEventListener('click',()=>{
- if(answered||selected===null)return;
- answered=true;confirmAnswer.classList.add('hidden');
- const item=questions[current];
- [...qOptions.querySelectorAll('button')].forEach((button,i)=>{
-  button.disabled=true;if(i===item.correct)button.classList.add('correct');
-  if(i===selected&&i!==item.correct)button.classList.add('incorrect');
- });
- const correct=selected===item.correct;
- if(correct){score++;qScore.textContent=score}
- qFeedback.textContent=`${correct?'¡Correcto!':'Respuesta incorrecta.'} ${item.explain}`;
- qFeedback.classList.add(correct?'feedback-correct':'feedback-wrong');
- progressFill.style.width=`${(current+1)/questions.length*100}%`;
- nextQuestion.textContent=current===questions.length-1?'Ver mi resultado →':'Siguiente pregunta →';
- nextQuestion.classList.remove('hidden');
+
+/* Arranca un ciclo completo: baraja las 15 y empieza desde tanda 0 */
+function initCycle() {
+  shuffledQuestions = shuffle([...questions]);
+  tanda = 0;
+  startTanda();
+}
+
+/* Carga la tanda actual (slice de 5 del pool barajado) */
+function startTanda() {
+  const start    = tanda * TANDA_SIZE;
+  tandaQuestions = shuffledQuestions.slice(start, start + TANDA_SIZE);
+  current        = 0;
+
+  byId('qTandaBadge').textContent = `Tanda ${tanda + 1} de ${TOTAL_TANDAS}`;
+  byId('quizGame').classList.remove('hidden');
+  byId('quizResult').classList.remove('show');
+  byId('tandaResult').classList.remove('show');
+
+  renderQuestion();
+}
+
+function renderQuestion() {
+  revealed = false;
+  const item = tandaQuestions[current];
+
+  qCounter.textContent = `Pregunta ${current + 1} de ${TANDA_SIZE}`;
+  qText.textContent    = item.q;
+  qOptions.replaceChildren();
+  qFeedback.textContent = '';
+  qFeedback.className   = 'feedback';
+
+  revealBtn.classList.remove('hidden');
+  nextQuestion.classList.add('hidden');
+  progressFill.style.width = `${current / TANDA_SIZE * 100}%`;
+
+  /* Opciones estáticas — solo visuales, no se pueden clicar */
+  item.options.forEach((option, index) => {
+    const div = document.createElement('div');
+    div.className   = 'option option-static';
+    div.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+    qOptions.append(div);
+  });
+}
+
+/* "Ver respuesta" → iluminar la correcta y mostrar explicación */
+revealBtn.addEventListener('click', () => {
+  if (revealed) return;
+  revealed = true;
+  revealBtn.classList.add('hidden');
+
+  const item = tandaQuestions[current];
+  [...qOptions.querySelectorAll('.option-static')].forEach((div, i) => {
+    if (i === item.correct) div.classList.add('correct');
+  });
+
+  qFeedback.textContent = item.explain;
+  qFeedback.classList.add('feedback-correct');
+  progressFill.style.width = `${(current + 1) / TANDA_SIZE * 100}%`;
+
+  const esUltima = current === TANDA_SIZE - 1;
+  nextQuestion.textContent = esUltima
+    ? (tanda === TOTAL_TANDAS - 1 ? 'Ver resultado final →' : 'Ver resultado de tanda →')
+    : 'Siguiente pregunta →';
+  nextQuestion.classList.remove('hidden');
 });
-nextQuestion.addEventListener('click',()=>{
- if(!answered)return;
- if(current<questions.length-1){current++;renderQuestion();return}
- byId('quizGame').classList.add('hidden');byId('quizResult').classList.add('show');
- byId('resultScore').textContent=`${score}/${questions.length}`;
- const pct=score/questions.length;
- byId('resultMessage').textContent=pct===1?'¡Extraordinario! Dominaste el desafío avanzado.':pct>=.8?'¡Excelente trabajo! Tienes un conocimiento profundo del legado de Salomé Ureña.':pct>=.6?'¡Buen trabajo! Repasa algunos detalles y vuelve a intentarlo.':'Sigue explorando su vida, su obra y sus aportes. ¡Puedes mejorar!';
+
+/* Avanzar a la siguiente pregunta o mostrar resultado de tanda */
+nextQuestion.addEventListener('click', () => {
+  if (!revealed) return;
+  if (current < TANDA_SIZE - 1) { current++; renderQuestion(); return; }
+
+  byId('quizGame').classList.add('hidden');
+
+  if (tanda === TOTAL_TANDAS - 1) {
+    byId('quizResult').classList.add('show');
+  } else {
+    byId('tandaNextLabel').textContent = `Comenzar tanda ${tanda + 2} \u2192`;
+    byId('tandaResult').classList.add('show');
+  }
 });
-byId('restartQuiz').addEventListener('click',()=>{
- current=0;score=0;qScore.textContent='0';byId('quizGame').classList.remove('hidden');byId('quizResult').classList.remove('show');renderQuestion();
+
+/* Siguiente tanda */
+byId('nextTanda').addEventListener('click', () => {
+  tanda++;
+  byId('tandaResult').classList.remove('show');
+  startTanda();
 });
-renderQuestion();
+
+/* Repetir todo el ciclo */
+byId('restartQuiz').addEventListener('click', () => {
+  initCycle();
+});
+
+/* Arranque */
+initCycle();
+

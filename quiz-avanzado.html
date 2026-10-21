@@ -3,9 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title>
-   CINE SALOMÉ — Quiz avanzado
-  </title>
+  <title>CINE SALOMÉ — Quiz avanzado</title>
   <link href="style/css/common.css" rel="stylesheet"/>
   <link href="style/css/quiz-avanzado.css" rel="stylesheet"/>
   <link href="img/favicon.png" rel="icon" type="image/png"/>
@@ -15,129 +13,76 @@
    <a class="logo" href="index.html">
     <img referrerpolicy="no-referrer" alt="Cine Salomé" class="brand-logo" src="img/LogoCineSalomé.png"/>
    </a>
-   <button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuToggle">
-    ☰
-   </button>
+   <button aria-expanded="false" aria-label="Abrir menú" class="menu-toggle" id="menuToggle">☰</button>
    <ul class="nav-links" id="navLinks">
-    <li>
-     <a href="index.html">
-      Inicio
-     </a>
-    </li>
-    <li>
-     <a href="biografia.html">
-      Biografía
-     </a>
-    </li>
-    <li>
-     <a href="aportes.html">
-      Aportes
-     </a>
-    </li>
-    <li>
-     <a href="obras.html">
-      Obras
-     </a>
-    </li>
-    <li>
-     <a href="linea-tiempo.html">
-      Línea del tiempo
-     </a>
-    </li>
-    <li>
-     <a aria-current="page" class="nav-cta" href="quiz.html">
-      Pon a prueba lo aprendido
-     </a>
-    </li>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="biografia.html">Biografía</a></li>
+    <li><a href="aportes.html">Aportes</a></li>
+    <li><a href="obras.html">Obras</a></li>
+    <li><a href="linea-tiempo.html">Línea del tiempo</a></li>
+    <li><a aria-current="page" class="nav-cta" href="quiz.html">Pon a prueba lo aprendido</a></li>
    </ul>
   </nav>
   <main>
    <header class="page-hero">
-    <div class="eyebrow">
-     07 · Desafío avanzado
-    </div>
+    <div class="eyebrow">07 · Desafío avanzado</div>
     <h1 class="page-title">
      ¿Cuánto conoces realmente sobre
-     <span>
-      Salomé?
-     </span>
+     <span>Salomé?</span>
     </h1>
     <p class="page-intro">
-     Supera 15 preguntas de mayor dificultad sobre su poesía, pensamiento y legado educativo. Selecciona tu respuesta y confírmala antes de conocer el resultado.
+     Supera 3 tandas de 5 preguntas sobre su poesía, pensamiento y legado educativo.
+     Lee cada pregunta, piensa la respuesta y pulsa <strong>Ver respuesta</strong> para descubrir cuál es la correcta.
     </p>
    </header>
    <section class="content-section">
     <div class="quiz-wrap reveal">
+     <!-- Juego -->
      <div id="quizGame">
       <div class="quiz-top">
-       <span class="quiz-counter" id="qCounter">
-        Pregunta 1 de 15
-       </span>
-       <span class="quiz-score">
-        Puntos:
-        <span id="qScore">
-         0
-        </span>
-       </span>
-      </div>
-      <div class="progress">
-       <div class="progress-fill" id="progressFill">
+       <div class="quiz-top-left">
+        <span class="quiz-counter" id="qCounter">Pregunta 1 de 5</span>
+        <span class="quiz-tanda-badge" id="qTandaBadge">Tanda 1 de 3</span>
        </div>
       </div>
-      <h2 class="question" id="qText">
-       ¿En qué año nació Salomé Ureña?
-      </h2>
-      <div class="options" id="qOptions">
+      <div class="progress">
+       <div class="progress-fill" id="progressFill"></div>
       </div>
-      <div aria-live="polite" class="feedback" id="qFeedback">
-      </div>
+      <h2 class="question" id="qText">¿En qué año nació Salomé Ureña?</h2>
+      <div class="options" id="qOptions"></div>
+      <div aria-live="polite" class="feedback" id="qFeedback"></div>
       <div class="quiz-controls">
-       <button class="btn btn-primary hidden" id="confirmAnswer" type="button">Confirmar respuesta ✓</button>
-       <button class="btn btn-primary hidden" id="nextQuestion">
-        Siguiente pregunta →
-       </button>
+       <button class="btn btn-primary" id="revealAnswer" type="button">Ver respuesta 👁</button>
+       <button class="btn btn-primary hidden" id="nextQuestion">Siguiente pregunta →</button>
       </div>
      </div>
-     <div class="quiz-result" id="quizResult">
-      <div class="result-score" id="resultScore">
-       0/15
-      </div>
-      <h2 class="section-title">
-       ¡Repaso terminado!
-      </h2>
-      <p class="result-message" id="resultMessage">
-      </p>
-      <button class="btn btn-primary" id="restartQuiz">
-       Intentar de nuevo ↻
+     <!-- Resultado intermedio entre tandas -->
+     <div class="quiz-result" id="tandaResult">
+      <div class="tanda-check"></div>
+      <h2 class="section-title" id="tandaNumber">GRACIAS POR PARTICIPAR</h2>
+      <button class="btn btn-primary" id="nextTanda">
+       <span id="tandaNextLabel">Comenzar tanda 2 →</span>
       </button>
+     </div>
+     <!-- Resultado final (tras las 3 tandas) -->
+     <div class="quiz-result" id="quizResult">
+      <div class="tanda-check"></div>
+      <h2 class="section-title">¡Ciclo completado!</h2>
+      <p class="result-message">¿Quieres repasar de nuevo? Las preguntas se barajarán.</p>
+      <button class="btn btn-primary" id="restartQuiz">Repetir preguntas ↻</button>
      </div>
     </div>
    </section>
   </main>
   <footer>
-   <div class="footer-mark">
-    CINE
-    <span>
-     SALOMÉ
-    </span>
-   </div>
-   <p class="footer-quote">
-    La pantalla se apaga. Su legado permanece.
-   </p>
-   <div class="footer-bottom">
-    Una vida que inspira · Experiencia educativa inspirada en el cine
-   </div>
+   <div class="footer-mark">CINE <span>SALOMÉ</span></div>
+   <p class="footer-quote">La pantalla se apaga. Su legado permanece.</p>
+   <div class="footer-bottom">Una vida que inspira · Experiencia educativa inspirada en el cine</div>
   </footer>
-  <button aria-label="Volver arriba" class="back-top" id="backTop">
-   ↑
-  </button>
-  <script src="style/js/common.js">
-  </script>
-  <script src="style/js/quiz-avanzado.js">
-  </script>
-  <script src="api-config.js">
-  </script>
-  <script src="style/js/auth.js">
-  </script>
+  <button aria-label="Volver arriba" class="back-top" id="backTop">↑</button>
+  <script src="style/js/common.js"></script>
+  <script src="style/js/quiz-avanzado.js"></script>
+  <script src="api-config.js"></script>
+  <script src="style/js/auth.js"></script>
  </body>
 </html>
